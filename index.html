@@ -2,16 +2,41 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>Movie Polymer App</title>
+    <title>Movies Polymer App</title>
 
     <link rel="import" href="./bower_components/polymer/polymer.html">
+    <link rel="import" href="./bower_components/paper-styles/paper-styles.html">
     <link rel="import" href="./bower_components/iron-ajax/iron-ajax.html">
     <link rel="import" href="./bower_components/paper-drawer-panel/paper-drawer-panel.html">
     <link rel="import" href="./bower_components/paper-card/paper-card.html">
     <link rel="import" href="./bower_components/paper-button/paper-button.html">
+    <link rel="import" href="./bower_components/paper-header-panel/paper-header-panel.html">
+
+    <style is="custom-style">
+      paper-header-panel {
+        @apply(--shadow-elevation-2dp);
+      }
+      paper-header-panel .paper-header {
+        background-color: var(--paper-lime-500);
+      }
+      paper-header-panel .paper-header {
+        height: 320px;
+        font-size: 16px;
+        line-height: 60px;
+        padding: 0 10px;
+        color: white;
+        transition: height 0.2s;
+      }
+
+      paper-header-panel .content {
+        height: 2000px;
+        margin: 60px;
+      }
+
+    </style>
 
   </head>
-  <body>
+  <body >
       <main>
         <template is="dom-bind">
 
@@ -26,14 +51,19 @@
           <paper-drawer-panel>
             <div drawer> Drawer panel... </div>
             <section main>
-              <template is="dom-repeat" items="[[movies]]" as="movie">
-                <paper-card heading="[[movie.nombre]]" image="./img/[[movie.poster]]" preloadImage>
-                  <div class="card-content">[[movie.director]]</div>
-                  <div class="card-actions">
-                    <paper-button>Some action</paper-button>
-                  </div>
-                </paper-card>
-              </template>
+              <paper-header-panel mode="cover" class="lime">
+                <div class="paper-header">standard</div>
+                <div class="content cover">
+                  <template is="dom-repeat" items="[[movies]]" as="movie">
+                    <paper-card heading="[[movie.nombre]]" image="./img/[[movie.poster]]" preloadImage>
+                      <div class="card-content">[[movie.director]]</div>
+                      <div class="card-actions">
+                        <paper-button>Some action</paper-button>
+                      </div>
+                    </paper-card>
+                  </template>
+                </div>
+              </paper-header-panel>
             </section>
         </paper-drawer-panel>
 
