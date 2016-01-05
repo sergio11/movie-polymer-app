@@ -1,0 +1,57 @@
+<style is="custom-style">
+      
+  paper-header-panel {
+    @apply(--shadow-elevation-2dp);
+  }
+
+  .drawer paper-header-panel .paper-header {
+    height: 60px;
+    font-size: 16px;
+    line-height: 60px;
+    padding: 0 10px;
+    color: white;
+    transition: height 0.2s;
+  }
+      
+  .main paper-header-panel .paper-header {
+    background-color: var(--paper-lime-500);
+  }
+
+  .main paper-header-panel .paper-header {
+    height: 320px;
+    font-size: 16px;
+    line-height: 60px;
+    padding: 0 10px;
+    color: white;
+    transition: height 0.2s;
+  }
+
+  .main paper-header-panel .content {
+    width: 75%;
+    height: 2000px;
+    margin: 60px auto;
+    column-count: 3;
+    column-gap: 5px;
+  }
+
+  .main paper-header-panel .content paper-card{
+    --paper-card:{
+      margin: .5rem;
+      width: 100%;
+      background-color: #d8e464;
+    };
+    --paper-card-header:{
+      overflow: visible;
+    };
+    --paper-card-header-text:{
+      color: #fff;
+      @apply(--paper-font-headline);
+    };
+    --paper-card-content:{
+      color: #fff;
+      @apply(--paper-font-title);
+    };
+        
+  }
+
+</style>
