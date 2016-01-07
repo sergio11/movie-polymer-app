@@ -4,12 +4,11 @@
     if (window.location.port === '') {  // if production
       page.base(app.baseUrl.replace(/\/$/, ''));
     }
+
+    app.baseUrl = '/';
     
     /* Routes */
     page('/', function() {
-      app.route = 'home';
-    });
-    page(app.baseUrl, function() {
       app.route = 'home';
     });
     page('/about', function() {
