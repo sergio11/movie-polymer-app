@@ -31,28 +31,25 @@
                 </a>
               </paper-menu>
             </paper-scroll-header-panel>
-            <div class="drawer" drawer>
-              <paper-header-panel>
-                <div class="paper-header">standard</div>
-                <div class="content"></div>
-              </paper-header-panel>
-            </div>
             <section class='main' main>
-              <paper-header-panel mode="cover">
-                <div class="paper-header">Movie App</div>
-                <div class="content cover">
-                  <iron-pages attr-for-selected="data-route" selected="{{route}}">
-                    <!-- Grilla de Peliculas -->
-                    <movies-grid data-route='home'></movies-grid>
-                  </iron-pages>
-                  <section data-route="about">
-                    <paper-material elevation="1">
-                      <h2 class="page-title">About</h2>
-                      <p>Aplicación desarrollada para el curso de Polymer</p>
-                    </paper-material>
-                  </section>
-                </div>
-              </paper-header-panel>
+              <iron-pages attr-for-selected="data-route" selected="{{route}}">
+                <!-- Página Home -->
+                <section data-route='home'>
+                  <paper-header-panel mode="cover">
+                    <div class="paper-header">Movie App</div>
+                    <div class="content cover">
+                      <!-- Grilla de Peliculas -->
+                      <movies-grid></movies-grid>
+                    </div>
+                  </paper-header-panel>
+                </section>
+                <section data-route="about">
+                  <paper-material elevation="1">
+                    <h2 class="page-title">About</h2>
+                    <p>Aplicación desarrollada para el curso de Polymer</p>
+                  </paper-material>
+                </section>
+              </iron-pages>
             </section>
           </paper-drawer-panel>
 
