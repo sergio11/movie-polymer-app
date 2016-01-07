@@ -1,17 +1,55 @@
 <style is="custom-style">
+
+  /*Drawer Panel*/
+
+  #drawerToolbar {
+    color: var(--secondary-text-color);
+    background-color: var(--drawer-menu-color);
+    border-bottom: var(--drawer-toolbar-border-color);
+  }
+
+  #drawerToolbar .menu-name {
+    @apply(--paper-font-title);
+  }
+
+  paper-scroll-header-panel {
+    height: 100%;
+  }
+
+  paper-menu {
+    --paper-menu-selected-item: {
+      color: var(--primary-color);
+    }
+    --paper-menu-focused-item-after: {
+      background: var(--primary-color);
+    }
+  }
+
+  paper-menu iron-icon {
+    margin-right: 33px;
+    opacity: 0.54;
+  }
+
+  paper-menu a {
+    @apply(--layout-horizontal);
+    @apply(--layout-center);
+    text-decoration: none;
+    color: var(--menu-link-color);
+    font-family: 'Roboto', 'Noto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    min-height: 48px;
+    padding: 0 16px;
+  }
       
   paper-header-panel {
     @apply(--shadow-elevation-2dp);
   }
 
-  .drawer paper-header-panel .paper-header {
-    height: 60px;
-    font-size: 16px;
-    line-height: 60px;
-    padding: 0 10px;
-    color: white;
-    transition: height 0.2s;
-  }
+  /* Content Panel */
       
   .main paper-header-panel .paper-header {
     background-color: var(--paper-lime-500);
