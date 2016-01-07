@@ -1,0 +1,81 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="movies-grid">
+  <template>
+    <style>
+
+      :host {
+        display: block;
+        width: 75%;
+        height: 2000px;
+        margin: 60px auto;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+        -webkit-column-gap: 5px;
+        -moz-column-gap: 5px;
+        column-gap: 5px;
+      }
+
+      paper-card{
+        --paper-card:{
+          margin: .5rem;
+          width: 100%;
+          background-color: #d8e464;
+        };
+        --paper-card-header:{
+          overflow: visible;
+        };
+        --paper-card-header-text:{
+          color: #fff;
+          @apply(--paper-font-headline);
+        };
+        --paper-card-content:{
+          color: #fff;
+          @apply(--paper-font-title);
+        };
+      }
+
+    </style>
+
+    <iron-ajax
+      auto
+      url="http://localhost:3000/peliculas"
+      handle-as="json"
+      last-response="{{movies}}"
+      debounce-duration="300">
+    </iron-ajax>
+
+    <template is="dom-repeat" items="[[movies]]" as="movie">
+      <paper-card heading="[[movie.nombre]]" image="./images/[[movie.poster]]">
+        <div class="card-content">
+          <p><iron-icon icon="social:person-outline"></iron-icon>&nbsp;[[movie.director]]</p>
+          <p>Género:&nbsp;[[movie.clasificacion]]</p>
+        </div>
+        <div class="card-actions">
+          <paper-button>Some action</paper-button>
+        </div>
+      </paper-card>
+    </template>
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+      Polymer({
+        is: 'movies-grid',
+        properties: {
+          movies: {
+            type: Array,
+            value: function(){
+              return []
+            },
+            notify: true,
+          }
+        }
+      });
+
+    })();
+  </script>
+</dom-module>

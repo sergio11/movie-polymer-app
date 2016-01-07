@@ -1,0 +1,37 @@
+<script src="../bower_components/page/page.js"></script>
+<script>
+  window.addEventListener('WebComponentsReady', function() {
+    if (window.location.port === '') {  // if production
+      page.base(app.baseUrl.replace(/\/$/, ''));
+    }
+    
+    /* Routes */
+    page('/', function() {
+      app.route = 'home';
+    });
+    page(app.baseUrl, function() {
+      app.route = 'home';
+    });
+    /*page('/users', function() {
+      app.route = 'users';
+    });
+    page('/users/:name', function(data) {
+      app.route = 'user-info';
+      app.params = data.params;
+    });
+    page('/contact', function() {
+      app.route = 'contact';
+    });*/
+    // 404
+    page('*', function() {
+      app.$.toast.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
+      app.$.toast.show();
+      //Redirigimos al la home
+      page.redirect(app.baseUrl);
+    });
+    // add #! before urls
+    page({
+      hashbang: true
+    });
+  });
+</script>

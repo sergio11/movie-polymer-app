@@ -7,21 +7,11 @@
     <script src="./bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <!-- endbuild -->
     <link rel="import" href="./elements/elements.html">
-
   </head>
   <body>
       <span id="browser-sync-binding"></span>
       <main>
         <template is="dom-bind" id="app">
-
-          <iron-ajax
-            auto
-            url="http://localhost:3000/peliculas"
-            handle-as="json"
-            last-response="{{movies}}"
-            debounce-duration="300">
-          </iron-ajax>
-
           <paper-drawer-panel>
             <div class="drawer" drawer>
               <paper-header-panel>
@@ -33,22 +23,19 @@
               <paper-header-panel mode="cover">
                 <div class="paper-header">Movie App</div>
                 <div class="content cover">
-                  <template is="dom-repeat" items="[[movies]]" as="movie">
-                    <paper-card heading="[[movie.nombre]]" image="./images/[[movie.poster]]">
-                      <div class="card-content">
-                        <p><iron-icon icon="social:person-outline"></iron-icon>&nbsp;[[movie.director]]</p>
-                      </div>
-                      <div class="card-actions">
-                        <paper-button>Some action</paper-button>
-                      </div>
-                    </paper-card>
-                  </template>
+                  <!-- Grilla de Peliculas -->
+                  <movies-grid></movies-grid>
                 </div>
               </paper-header-panel>
             </section>
-        </paper-drawer-panel>
+          </paper-drawer-panel>
 
+          <paper-toast id="toast" text=""></paper-toast>
         </template>
       </main>
+
+      <!-- build:js scripts/app.js -->
+      <script src="scripts/app.js"></script>
+      <!-- endbuild-->
   </body>
 </html>

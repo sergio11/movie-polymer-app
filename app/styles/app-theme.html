@@ -26,32 +26,11 @@
     transition: height 0.2s;
   }
 
-  .main paper-header-panel .content {
-    width: 75%;
-    height: 2000px;
-    margin: 60px auto;
-    column-count: 3;
-    column-gap: 5px;
+  paper-toast{
+    --paper-toast-background-color:var(--paper-lime-500);
+    --paper-toast-color:#fff;
   }
 
-  .main paper-header-panel .content paper-card{
-    --paper-card:{
-      margin: .5rem;
-      width: 100%;
-      background-color: #d8e464;
-    };
-    --paper-card-header:{
-      overflow: visible;
-    };
-    --paper-card-header-text:{
-      color: #fff;
-      @apply(--paper-font-headline);
-    };
-    --paper-card-content:{
-      color: #fff;
-      @apply(--paper-font-title);
-    };
-        
-  }
+
 
 </style>
