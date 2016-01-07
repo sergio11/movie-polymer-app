@@ -9,5 +9,7 @@ module.exports = Object.freeze({
     IMAGES_ORIGIN: 'app/images/**/*',
     IMAGES_DIST: 'dist/images',
     STYLES_ORIGIN: 'app/styles/**/*',
-    STYLES_DIST: 'dist/styles'
+    STYLES_DIST: 'dist/styles',
+    SCRIPTS_ORIGIN: 'app/scripts/**/*.js',
+    SCRIPTS_DIST: 'dist/scripts',
 });

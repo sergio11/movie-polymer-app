@@ -46,7 +46,7 @@ gulp.task('default', ['clean'], function(cb) {
   // Uncomment 'cache-config' if you are going to use service workers.
   runSequence(
     ['copy'],
-    ['build:images', 'build:fonts', 'optimize:html'],
+    ['build:javascript','build:images', 'build:fonts', 'optimize:html'],
     'vulcanize', // 'cache-config',
     cb);
 });
