@@ -32,24 +32,11 @@
               </paper-menu>
             </paper-scroll-header-panel>
             <section class='main' main>
-              <iron-pages attr-for-selected="data-route" selected="{{route}}">
+              <neon-animated-pages attr-for-selected="data-route" selected="{{route}}" entry-animation="fade-in-animation" exit-animation="fade-out-animation">
                 <!-- Página Home -->
-                <section data-route='home'>
-                  <paper-header-panel mode="cover">
-                    <div class="paper-header">Movie App</div>
-                    <div class="content cover">
-                      <!-- Grilla de Peliculas -->
-                      <movies-grid></movies-grid>
-                    </div>
-                  </paper-header-panel>
-                </section>
-                <section data-route="about">
-                  <paper-material elevation="1">
-                    <h2 class="page-title">About</h2>
-                    <p>Aplicación desarrollada para el curso de Polymer</p>
-                  </paper-material>
-                </section>
-              </iron-pages>
+                <home-page data-route='home'></home-page>
+                <about-page data-route='about'></about-page>
+              </neon-animated-pages>
             </section>
           </paper-drawer-panel>
 
@@ -57,6 +44,6 @@
         </template>
       </main>
 
-      <script src="scripts/app.main.js"></script>
+      <script src="./scripts/app.min.js"></script>
   </body>
 </html>

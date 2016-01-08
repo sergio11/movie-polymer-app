@@ -1,0 +1,43 @@
+
+<dom-module id="home-page">
+  <template>
+    <style>
+      :host{
+        display: block;
+        height: 100%;
+      }
+
+      paper-header-panel .paper-header {
+        height: 320px;
+        @apply(--paper-font-display1);
+        padding: .5rem 1rem;
+        color: #fff;
+        transition: height 0.2s;
+        background-image: url(../../images/cine.jpg);
+      }
+
+    </style>
+
+    <paper-header-panel mode="cover">
+      <div class="paper-header">Últimas Películas añadidas</div>
+      <div class="content cover">
+        <!-- Grilla de Peliculas -->
+        <movies-grid></movies-grid>
+      </div>
+    </paper-header-panel>
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+      Polymer({
+        is: 'home-page',
+        properties: {
+          
+        }
+      });
+
+    })();
+  </script>
+</dom-module>

@@ -49,20 +49,19 @@
     @apply(--shadow-elevation-2dp);
   }
 
-  /* Content Panel */
-      
-  .main paper-header-panel .paper-header {
-    background-color: var(--paper-lime-500);
+  /*Toolbar styles*/
+  paper-toolbar{
+    --paper-toolbar-background:var(--paper-lime-500);
+    --paper-toolbar-color:#fff;
   }
 
-  .main paper-header-panel .paper-header {
-    height: 320px;
-    font-size: 16px;
-    line-height: 60px;
-    padding: 0 10px;
-    color: white;
-    transition: height 0.2s;
+  /* Content Panel */
+  .main > neon-animated-pages{
+    height: 100%;
   }
+      
+
+  
 
   paper-toast{
     --paper-toast-background-color:var(--paper-lime-500);

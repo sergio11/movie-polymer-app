@@ -1,0 +1,35 @@
+<dom-module id="about-page">
+  <template>
+    <style>
+      
+    </style>
+
+    <paper-material elevation="1">
+      <h2 class="page-title">About</h2>
+      <p>Aplicación desarrollada para el curso de Polymer</p>
+    </paper-material>
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+      Polymer({
+        is: 'about-page',
+        behaviors: [
+          Polymer.NeonAnimationRunnerBehavior
+        ],
+        properties: {
+          
+        },
+        listeners: {
+          'neon-animation-finish': '_onNeonAnimationFinish'
+        },
+        _onNeonAnimationFinish: function() {
+          console.log("Animación Finalizada!!!");
+        }
+      });
+
+    })();
+  </script>
+</dom-module>
