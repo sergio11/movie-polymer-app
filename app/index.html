@@ -25,6 +25,10 @@
                   <iron-icon icon="home"></iron-icon>
                   <span>Home</span>
                 </a>
+                <a data-route="add" href="{{baseUrl}}add">
+                  <iron-icon icon="add"></iron-icon>
+                  <span>Add Movie</span>
+                </a>
                 <a data-route="about" href="{{baseUrl}}about">
                   <iron-icon icon="info"></iron-icon>
                   <span>About</span>
@@ -33,8 +37,9 @@
             </paper-scroll-header-panel>
             <section class='main' main>
               <neon-animated-pages attr-for-selected="data-route" selected="{{route}}" entry-animation="fade-in-animation" exit-animation="fade-out-animation">
-                <!-- Página Home -->
+                <!-- Pages -->
                 <home-page data-route='home'></home-page>
+                <add-movie-page data-route='add'></add-movie-page>
                 <about-page data-route='about'></about-page>
               </neon-animated-pages>
             </section>

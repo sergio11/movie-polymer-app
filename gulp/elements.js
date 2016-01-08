@@ -36,5 +36,6 @@ gulp.task('vulcanize', function() {
       inlineScripts: true
     }))
     .pipe(gulp.dest(gulpConstants.ELEMENTS_DIST))
-    .pipe($.size({title: 'vulcanize'}));
+    .pipe($.size({title: 'vulcanize'}))
+    
 });

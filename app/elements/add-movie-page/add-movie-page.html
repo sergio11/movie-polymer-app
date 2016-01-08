@@ -1,0 +1,80 @@
+<dom-module id="add-movie-page">
+  <template>
+    <style>
+      :host{
+        display: block;
+        height: 100%;
+      }
+
+      paper-material{
+        width: 80%;
+        margin: 1rem auto;
+        padding: 1.5rem 2rem;
+      }
+
+      paper-dropdown-menu {
+        text-align: left;
+        margin: auto;
+        width: 180px;
+      }
+
+    </style>
+
+    <paper-material id="formContainer" elevation="1" animated>
+      <h2>Añadir Película</h2>
+      <form is="iron-form" id="form" method="post" action="http://localhost:3000/peliculas">
+        <!-- Nombre de la Película -->
+        <paper-input name="nombre" char-counter label="Título de la Película" minlength="5" maxlength="30" required pattern="[a-zA-Z]*" error-message="Nombre no válido!">
+        </paper-input>
+        <!-- Director -->
+        <paper-input name="director" char-counter label="Director" minlength="5" maxlength="30" required pattern="[a-zA-Z]*" error-message="Director no válido!">
+        </paper-input> 
+
+        <iron-ajax auto url="http://localhost:3000/clasificaciones" handle-as="json" last-response="{{clasifications}}"></iron-ajax>
+        <paper-dropdown-menu name='clasificacion' label="Clasificación" required>
+          <paper-listbox class="dropdown-content" selected="1">
+            <template is="dom-repeat" items="[[clasifications]]" as="clasification">
+              <paper-item>[[clasification.nombre]]</paper-item>
+            </template>
+          </paper-listbox>
+        </paper-dropdown-menu>
+
+        <p>
+          <paper-button raised on-click='_submitForm'>
+            <iron-icon icon="send"></iron-icon>
+            Enviar
+          </paper-button>
+        </p>
+        
+      </form>
+    </paper-material>
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+      Polymer({
+        is: 'add-movie-page',
+        listeners:{
+          'iron-form-response': '_onFormResponse'
+        },
+        _onFormResponse: function(event){
+          var ironRequest = event.detail;
+          if(!ironRequest.errored){
+            this.fire('add-movie',{
+              message: "La película fue creada con éxito",
+              data: ironRequest.response
+            });
+            //reseteamos el formulario
+            this.$.form.reset();
+          }
+        },
+        _submitForm: function(){
+          this.$.form.submit();
+        }
+      });
+
+    })();
+  </script>
+</dom-module>

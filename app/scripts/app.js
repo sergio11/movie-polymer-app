@@ -11,5 +11,12 @@
 	    // app.baseUrl = '/polymer-starter-kit/';
 	}
 
+	window.addEventListener('add-movie',function(e){
+		app.$.toast.text = e.detail.message;
+		app.$.toast.show();
+	    //Redirigimos al la home
+	    //page.redirect(app.baseUrl);
+	});
+
 
 })(document);
