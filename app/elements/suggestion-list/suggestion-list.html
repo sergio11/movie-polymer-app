@@ -1,0 +1,32 @@
+
+<dom-module id="suggestion-list">
+  <template>
+    <style>
+
+      :host {
+        display: block;
+        max-height: 200px;
+      }
+
+    </style>
+
+    <template is='dom-repeat' items="[[suggestions]]" as="suggestion">
+      <suggestion-item data="[[suggestion]]"></suggestion-item>
+    </template>
+
+  </template>
+
+  <script>
+  (function() {
+    'use strict';
+    Polymer({
+      is: 'suggestion-list',
+      properties: {
+        suggestions: {
+          type: Array
+        }
+      }
+    });
+  })();
+  </script>
+</dom-module>

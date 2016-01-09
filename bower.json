@@ -23,6 +23,9 @@
     "iron-elements": "PolymerElements/iron-elements#^1.0.0",
     "paper-elements": "PolymerElements/paper-elements#^1.0.1",
     "neon-elements": "PolymerElements/neon-elements#^1.0.0",
-    "page": "page.js#~1.6.4"
+    "page": "page.js#~1.6.4",
+    "flag-icon": "~0.11.1",
+    "dw-flagsprites": "~0.0.3",
+    "google-map": "~1.1.7"
   }
 }

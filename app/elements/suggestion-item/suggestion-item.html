@@ -1,0 +1,45 @@
+
+<dom-module id="suggestion-item">
+  <template>
+    <style>
+
+    :host {
+      display: block;
+    }
+
+    </style>
+    <!--<paper-item> is an interactive list item. By default, it is a horizontal flexbox.-->
+    <paper-icon-item on-tap="_onTap">
+      <dw-flagsprites code="[[data.alpha2Code]]" item-icon></dw-flagsprites>
+      <paper-item-body two-line>
+        <div>{{data.name}}</div>
+        <div secondary>{{data.capital}}</div>
+      </paper-item-body>
+    </paper-icon-item>
+
+  </template>
+
+  <script>
+  (function() {
+    'use strict';
+    Polymer({
+      is: 'suggestion-item',
+      properties: {
+        data: {
+          type: Object,
+          observer: 'cambioData'
+        }
+      },
+      _onTap: function() {
+        console.log('has seleccionado', this.data);
+        this.fire('item-selected', this.data);
+      },
+      cambioData: function(){
+        //console.log(this.data.alpha2Code.toLowerCase());
+        this.set('data.alpha2Code', this.data.alpha2Code.toLowerCase());
+      }
+    });
+  })();
+  </script>
+
+</dom-module>

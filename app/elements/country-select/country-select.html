@@ -1,0 +1,178 @@
+<dom-module id="country-select">
+  <template>
+    <style>
+      :host {
+        display: block;
+        max-width: 900px;
+      }
+/*
+      :host > *{
+        -webkit-box-sizing:border-box;
+        box-sizing: border-box;
+
+        display: inline-block;
+        vertical-align: top;
+        letter-spacing: normal;
+      }
+
+      .country-search{
+        width: 60%;
+        padding: .5rem;
+
+      }
+
+      .country-search input[type=search]{
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        outline: none;
+        border:none;
+        text-indent: 12px;
+        border-radius: 8px;
+        -webkit-transition:all .5s;
+        transition:all .5s;
+      }
+
+      .country-search input[type=search]:focus{
+        box-shadow:var(--shadow-input-search,#9932cc) 0px 0px 15px;
+      }
+
+      .country-search input[type=search]::-webkit-input-placeholder{
+        font-style: italic;
+        color: #ccc;
+        opacity: 0.8;
+      }
+
+      .country-search input[type=search]::-moz-input-placeholder{
+        font-style: italic;
+        color: #ccc;
+        opacity: 0.8;
+      }
+
+      .country-search input[type=search]:-ms-input-placeholder{
+        font-style: italic;
+        color: #ccc;
+        opacity: 0.8;
+      }
+
+      google-map {
+        width: 40%;
+  			height: 300px;
+        border: 1px solid var(--border-color-google-map,#9932cc);
+  		}*/
+
+      #suggestions{
+        background-color: white;
+        line-height: 20px;
+        border-radius: 3px;
+        box-shadow: 0px 2px 6px #ccc;
+        padding: 10px 2px;
+        max-width: 250px;
+        min-width: 150px;
+      }
+
+    </style>
+
+    <iron-ajax
+      id='xhr'
+      url="https://restcountries-v1.p.mashape.com/name/[[currentText]]"  headers='{"X-Mashape-Key": "GFqeSlH1iLmshIPGZDz9uIsGQdkcp1Ko62yjsnHxl4oBcOHPbD"}'
+      handle-as="json"
+      last-response="{{suggestions}}"
+      debounce-duration="300"
+      on-error="_handlerError">
+    </iron-ajax>
+
+    <input type="search" on-keypress='_onKeyPress' value="{{currentText::input}}" placeholder='type country name'/>
+    <iron-dropdown id='suggestions' vertical-offset="30">
+      <div class="dropdown-content">
+        <suggestion-list  suggestions="[[suggestions]]" on-item-selected="_onItemSelected"></suggestion-list>
+      </div>
+    </iron-dropdown>
+    <div hidden="{{!suggestions.length}}">
+      Seleccionado: <span>{{countrySelected.name}}</span>
+      <input type="hidden" name="country" value="" id="hidden">
+    </div>
+
+    <template is='dom-if' if='[[countrySelected]]'>
+      <google-map latitude="[[countrySelected.latlng.0]]" longitude="[[countrySelected.latlng.1]]"></google-map>
+    </template>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'country-select',
+        properties: {
+          currentText: {
+            type: String,
+            observer: "_showSuggestions"
+          },
+          minCharacters: {
+            type: Number,
+            value: 2,
+            readOnly: true
+          },
+          countrySelected: {
+            type: Object,
+            value: null
+          },
+        },
+
+        _onKeyPress: function(e){
+          var code = e.charCode || e.keyCode;
+          console.log("Código : " + code);
+          if(
+            !(code == 32 ||
+            (code >= 65 && code <= 90) ||
+            (code >= 97 && code <= 122))
+          ){
+            e.preventDefault();
+            return false;
+          }
+        },
+
+        _showSuggestions: function(newValue,oldValue){
+          console.log("Mostrando sugerencias ...");
+          var suggestions = this.$.suggestions;
+          //Eliminamos espacios a ambos lados y dobles espacios.
+          newValue = newValue.trim().replace(/\s+/,' ');
+
+          if (newValue != oldValue) {
+            if (newValue.length >= this.minCharacters) {
+              if (!suggestions.opened) {
+                suggestions.open();
+              };
+              this.$.xhr.generateRequest();
+            }else{
+              if (suggestions.opened) {
+                suggestions.close();
+              };
+            }
+
+          }
+
+        },
+        _onItemSelected: function(selected){
+          console.log(" _onItemSelected");
+          console.log(selected);
+          this.set("countrySelected",selected);
+          /*var country = suggestion.detail;
+          this.currentText = country.name;
+          console.log('Country selected : ' );
+          console.log(country);
+          this.fire('country-selected',country)*/
+        },
+
+        _handlerError: function(error){
+          console.log(error);
+          this.$.toast.text = "Hola que tal";
+          this.$.toast.show();
+        }
+
+      });
+
+    })();
+  </script>
+</dom-module>

@@ -31,7 +31,7 @@ gulp.task('copy', function() {
 
   //Copiamos los componentes que no se vulcanizarán.
   var bower = gulp.src([
-    'app/bower_components/{webcomponentsjs,platinum-sw,sw-toolbox,promise-polyfill}/**/*'
+    'app/bower_components/{webcomponentsjs,platinum-sw,sw-toolbox,promise-polyfill,dw-flagsprites}/**/*'
   ]).pipe(gulp.dest(gulpConstants.BASE_DIST + 'bower_components'));
 
   return merge(app, bower)
@@ -97,4 +97,3 @@ gulp.task('serve:dist', ['default'], function() {
     middleware: [historyApiFallback()]
   });
 });
-

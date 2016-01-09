@@ -17,12 +17,15 @@
   }
 
   paper-menu {
-    --paper-menu-selected-item: {
-      color: var(--primary-color);
-    }
-    --paper-menu-focused-item-after: {
-      background: var(--primary-color);
-    }
+    --paper-menu-color:var(--paper-lime-500);
+    --paper-menu-selected-item:{
+      background-color:var(--paper-lime-300);
+      color: #a49cee !important;
+    };
+    --paper-menu-focused-item:{
+      background-color:var(--paper-lime-200);
+      color: #a49cee !important;
+    };
   }
 
   paper-menu iron-icon {
@@ -44,7 +47,7 @@
     min-height: 48px;
     padding: 0 16px;
   }
-      
+
   paper-header-panel {
     @apply(--shadow-elevation-2dp);
   }
@@ -59,9 +62,9 @@
   .main > neon-animated-pages{
     height: 100%;
   }
-      
 
-  
+
+
 
   paper-toast{
     --paper-toast-background-color:var(--paper-lime-500);

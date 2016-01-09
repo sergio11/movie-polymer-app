@@ -5,7 +5,8 @@
 
       :host {
         display: block;
-        width: 75%;
+        width: 95%;
+        max-width: 1100px;
         height: 2000px;
         margin: 60px auto;
         -webkit-column-count: 3;
@@ -20,7 +21,7 @@
         --paper-card:{
           margin: .5rem;
           width: 100%;
-          background-color: #d8e464;
+          background-color:var(--paper-lime-300);
         };
         --paper-card-header:{
           overflow: visible;
@@ -30,9 +31,15 @@
           @apply(--paper-font-headline);
         };
         --paper-card-content:{
-          color: #fff;
           @apply(--paper-font-title);
+          color: #a49cee;
         };
+      }
+
+      paper-card paper-button{
+        background-color: #a49cee;
+        color: #fff;
+        --paper-button-ink-color:#fff;
       }
 
     </style>
@@ -48,11 +55,14 @@
     <template is="dom-repeat" items="[[movies]]" as="movie">
       <paper-card heading="[[movie.nombre]]" image="./images/[[movie.poster]]">
         <div class="card-content">
-          <p><iron-icon icon="social:person-outline"></iron-icon>&nbsp;[[movie.director]]</p>
-          <p>Género:&nbsp;[[movie.clasificacion]]</p>
+          <p><strong>Director:</strong>&nbsp;[[movie.director]]</p>
+          <p><strong>Género:</strong>&nbsp;[[movie.clasificacion]]</p>
         </div>
         <div class="card-actions">
-          <paper-button>Some action</paper-button>
+          <paper-button raised>
+            <iron-icon icon="visibility"></iron-icon>
+            ver
+          </paper-button>
         </div>
       </paper-card>
     </template>

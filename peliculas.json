@@ -41,24 +41,6 @@
       "director": "Robert Zemeckis",
       "clasificacion": "Comedia",
       "poster": "forrest_gump.jpg"
-    },
-    {
-      "nombre": "dsadas",
-      "director": "dasdasd",
-      "clasificacion": "Comedia",
-      "id": 7
-    },
-    {
-      "nombre": "dsadasdasd",
-      "director": "dasdasdasdasdasd",
-      "clasificacion": "Drama",
-      "id": 8
-    },
-    {
-      "nombre": "dasda",
-      "director": "dasdasd",
-      "clasificacion": "Comedia",
-      "id": 9
     }
   ],
   "clasificaciones": [

@@ -6,6 +6,11 @@
         height: 100%;
       }
 
+      h2{
+        @apply(--paper-font-title);
+        color:var(--paper-lime-700)
+      }
+
       paper-material{
         width: 80%;
         margin: 1rem auto;
@@ -18,6 +23,15 @@
         width: 180px;
       }
 
+      paper-input{
+        --paper-input-container-focus-color: var(--paper-lime-500);
+      }
+
+      paper-button{
+        background-color: var(--paper-lime-500);
+        color: #fff;
+      }
+
     </style>
 
     <paper-material id="formContainer" elevation="1" animated>
@@ -28,7 +42,7 @@
         </paper-input>
         <!-- Director -->
         <paper-input name="director" char-counter label="Director" minlength="5" maxlength="30" required pattern="[a-zA-Z]*" error-message="Director no válido!">
-        </paper-input> 
+        </paper-input>
 
         <iron-ajax auto url="http://localhost:3000/clasificaciones" handle-as="json" last-response="{{clasifications}}"></iron-ajax>
         <paper-dropdown-menu name='clasificacion' label="Clasificación" required>
@@ -39,13 +53,15 @@
           </paper-listbox>
         </paper-dropdown-menu>
 
+        <country-select></country-select>
+
         <p>
           <paper-button raised on-click='_submitForm'>
             <iron-icon icon="send"></iron-icon>
             Enviar
           </paper-button>
         </p>
-        
+
       </form>
     </paper-material>
 
