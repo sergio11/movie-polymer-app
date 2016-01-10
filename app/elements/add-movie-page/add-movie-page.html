@@ -49,7 +49,7 @@
         <paper-input name="nombre" char-counter label="Título de la Película" minlength="5" maxlength="30" required pattern="[a-zA-Z]*" error-message="Nombre no válido!">
         </paper-input>
         <!-- Director -->
-        <paper-input name="director" char-counter label="Director" minlength="5" maxlength="30" required pattern="[a-zA-Z]*" error-message="Director no válido!">
+        <paper-input name="director" char-counter label="Director" minlength="5" maxlength="30" required pattern="\w+" error-message="Director no válido!">
         </paper-input>
 
         <iron-ajax auto url="http://localhost:3000/clasificaciones" handle-as="json" last-response="{{clasifications}}"></iron-ajax>

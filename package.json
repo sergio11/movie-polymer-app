@@ -28,6 +28,7 @@
     "gulp-useref": "^3.0.4",
     "gulp-vulcanize": "^6.0.0",
     "jshint-stylish": "^2.0.0",
+    "json-server": "^0.8.6",
     "merge-stream": "^1.0.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.0.2",

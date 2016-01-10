@@ -5,49 +5,94 @@
       "nombre": "El sexto sentido",
       "director": "M. Night Shyamalan",
       "clasificacion": "Drama",
-      "poster": "sexto_sentido.jpg"
+      "poster": "sexto_sentido.jpg",
+      "pais": {
+        "nombre": "United States",
+        "code": "us"
+      }
     },
     {
       "id": 2,
       "nombre": "Pulp Fiction",
       "director": "Tarantino",
       "clasificacion": "Acción",
-      "poster": "pulp_fiction.jpg"
+      "poster": "pulp_fiction.jpg",
+      "pais": {
+        "nombre": "United States",
+        "code": "us"
+      }
     },
     {
       "id": 3,
       "nombre": "Todo Sobre Mi Madre",
       "director": "Almodobar",
       "clasificacion": "Drama",
-      "poster": "todo_sobre_mi_madre.jpg"
+      "poster": "todo_sobre_mi_madre.jpg",
+      "pais": {
+        "nombre": "Spain",
+        "code": "es"
+      }
     },
     {
       "id": 4,
       "nombre": "300",
       "director": "Zack Snyder",
       "clasificacion": "Acción",
-      "poster": "300.jpg"
+      "poster": "300.jpg",
+      "pais": {
+        "nombre": "United States",
+        "code": "us"
+      }
     },
     {
       "id": 5,
       "nombre": "El silencio de los corderos",
       "director": "Jonathan Demme",
       "clasificacion": "Drama",
-      "poster": "silencio_corderos.jpg"
+      "poster": "silencio_corderos.jpg",
+      "pais": {
+        "nombre": "United States",
+        "code": "us"
+      }
     },
     {
       "id": 6,
       "nombre": "Forrest Gump",
       "director": "Robert Zemeckis",
       "clasificacion": "Comedia",
-      "poster": "forrest_gump.jpg"
+      "poster": "forrest_gump.jpg",
+      "pais": {
+        "nombre": "United States",
+        "code": "us"
+      }
     },
     {
-      "nombre": "Torrente",
-      "director": "Santiago",
+      "nombre": "lalaal",
+      "director": "lklklkk",
       "clasificacion": "Comedia",
-      "pais": "Spain",
-      "id": 7
+      "pais": "{\"nombre\":\"Brazil\",\"code\":\"br\"}",
+      "id": 8
+    },
+    {
+      "nombre": "rewrwer",
+      "director": "werwerwerwerewrew",
+      "clasificacion": "Comedia",
+      "pais": "{\"nombre\":\"Cyprus\",\"code\":\"cy\"}",
+      "id": 9
+    },
+    {
+      "nombre": "rewrwerwerwe",
+      "director": "rwerewrr",
+      "clasificacion": "Comedia",
+      "pais": "{\"nombre\":\"Cyprus\",\"code\":\"cy\"}",
+      "id": 10
+    },
+    {
+      "nombre": "rewrwerwerwe",
+      "director": "rwerewrr",
+      "clasificacion": "Drama",
+      "pais": "{\"nombre\":\"Cyprus\",\"code\":\"cy\"}",
+      "id": 11
     }
   ],
   "clasificaciones": [

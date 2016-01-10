@@ -48,6 +48,8 @@
         return code.toLowerCase();
       },
       _onTap: function() {
+        console.log("País Seleccionado ...");
+        console.log(this.data);
         this.fire('item-selected', this.data);
       }
     });

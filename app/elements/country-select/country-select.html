@@ -32,9 +32,9 @@
         <suggestion-list  suggestions="[[suggestions]]" on-item-selected="_onItemSelected"></suggestion-list>
       </div>
     </iron-dropdown>
-    <div hidden="{{!suggestions.length}}">
-      Seleccionado: <dw-flagsprites code="[[code]]" item-icon></dw-flagsprites><strong>{{countrySelected.name}}</strong>
-      <input type="hidden" name="pais" value="[[countrySelected.name]]" id="hidden">
+    <div hidden="{{!countrySelected}}">
+      Seleccionado: <dw-flagsprites code="[[countrySelected.code]]" item-icon></dw-flagsprites><strong>{{countrySelected.nombre}}</strong>
+      <input type="hidden" name="pais" value="[[countySelectSerialize]]" id="hidden">
     </div>
 
     <template is='dom-if' if='[[countrySelected]]'>
@@ -62,12 +62,13 @@
             type: Object,
             value: null
           },
-          code:{
-            computed:'lowercase(countrySelected.alpha2Code)'
+          countySelectSerialize: {
+            computed:'stringify(countrySelected)'
           }
         },
-        lowercase: function(code){
-          return code ? code.toLowerCase() : "";
+
+        stringify: function(country){
+          return JSON.stringify(country);
         },
 
         _onKeyPress: function(e){
@@ -106,7 +107,11 @@
         },
         _onItemSelected: function(e){
           console.log("Evento Item select");
-          this.set("countrySelected",e.detail);
+          var country = e.detail;
+          this.set("countrySelected",{
+            nombre:country.name,
+            code: country.alpha2Code.toLowerCase()
+          });
           this.$.suggestions.close();
         },
 

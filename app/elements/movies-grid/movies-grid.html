@@ -42,6 +42,11 @@
         --paper-button-ink-color:#fff;
       }
 
+      dw-flagsprites{
+        vertical-align: middle;
+        padding: .5rem;
+      }
+
     </style>
 
     <iron-ajax
@@ -57,6 +62,7 @@
         <div class="card-content">
           <p><strong>Director:</strong>&nbsp;[[movie.director]]</p>
           <p><strong>Género:</strong>&nbsp;[[movie.clasificacion]]</p>
+          <p><dw-flagsprites code="[[movie.pais.code]]"></dw-flagsprites>&nbsp;[[movie.pais.nombre]]</p>
         </div>
         <div class="card-actions">
           <paper-button raised>
