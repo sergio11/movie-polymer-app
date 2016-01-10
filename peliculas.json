@@ -41,6 +41,13 @@
       "director": "Robert Zemeckis",
       "clasificacion": "Comedia",
       "poster": "forrest_gump.jpg"
+    },
+    {
+      "nombre": "Torrente",
+      "director": "Santiago",
+      "clasificacion": "Comedia",
+      "pais": "Spain",
+      "id": 7
     }
   ],
   "clasificaciones": [

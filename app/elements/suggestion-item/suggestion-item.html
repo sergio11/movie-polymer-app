@@ -1,16 +1,28 @@
 
 <dom-module id="suggestion-item">
   <template>
-    <style>
-
+  <style>
     :host {
       display: block;
     }
-
-    </style>
+    dw-flagsprites{
+      margin-right: 8px;
+    }
+    paper-icon-item{
+      transition: all .5s;
+      --paper-item-icon-width: 40px;
+      --paper-icon-item:{
+        padding: 2px 10px;
+      };
+      --paper-item-focused:{
+        background-color: var(--paper-lime-500);
+        cursor: pointer;
+      }
+    }
+  </style>
     <!--<paper-item> is an interactive list item. By default, it is a horizontal flexbox.-->
     <paper-icon-item on-tap="_onTap">
-      <dw-flagsprites code="[[data.alpha2Code]]" item-icon></dw-flagsprites>
+      <dw-flagsprites code="[[code]]" item-icon></dw-flagsprites>
       <paper-item-body two-line>
         <div>{{data.name}}</div>
         <div secondary>{{data.capital}}</div>
@@ -26,17 +38,17 @@
       is: 'suggestion-item',
       properties: {
         data: {
-          type: Object,
-          observer: 'cambioData'
+          type: Object
+        },
+        code:{
+          computed:'lowercase(data.alpha2Code)'
         }
       },
-      _onTap: function() {
-        console.log('has seleccionado', this.data);
-        this.fire('item-selected', this.data);
+      lowercase: function(code){
+        return code.toLowerCase();
       },
-      cambioData: function(){
-        //console.log(this.data.alpha2Code.toLowerCase());
-        this.set('data.alpha2Code', this.data.alpha2Code.toLowerCase());
+      _onTap: function() {
+        this.fire('item-selected', this.data);
       }
     });
   })();

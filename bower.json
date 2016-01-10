@@ -26,6 +26,7 @@
     "page": "page.js#~1.6.4",
     "flag-icon": "~0.11.1",
     "dw-flagsprites": "~0.0.3",
-    "google-map": "~1.1.7"
+    "google-map": "~1.1.7",
+    "polymer-filters": "~0.2.1"
   }
 }
